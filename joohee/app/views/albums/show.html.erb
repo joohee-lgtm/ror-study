@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin url:</strong>
+  <%= @album.origin_url %>
+</p>
+
+<p>
+  <strong>Singer:</strong>
+  <%= @album.singer %>
+</p>
+
+<p>
+  <strong>Album title:</strong>
+  <%= @album.album_title %>
+</p>
+
+<p>
+  <strong>Song title:</strong>
+  <%= @album.song_title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @album.content %>
+</p>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origin url:</strong>
+  <%= @song_content.origin_url %>
+</p>
+
+<p>
+  <strong>Singer:</strong>
+  <%= @song_content.singer %>
+</p>
+
+<p>
+  <strong>Album title:</strong>
+  <%= @song_content.album_title %>
+</p>
+
+<p>
+  <strong>Song title:</strong>
+  <%= @song_content.song_title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @song_content.content %>
+</p>
+
+<%= link_to 'Edit', edit_song_content_path(@song_content) %> |
+<%= link_to 'Back', song_contents_path %>

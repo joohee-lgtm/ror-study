@@ -1,0 +1,38 @@
+<h1>Listing daum_albums</h1>
+
+<a href="crawl"><button id="crawl_btn" >crawl</button></a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+      <th>Image name</th>
+      <th>Review writer</th>
+      <th>Review</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daum_albums.each do |daum_album| %>
+      <tr>
+        <td><%= daum_album.artist %></td>
+        <td><%= daum_album.title %></td>
+        <td><%= daum_album.image_name %></td>
+        <td><%= daum_album.review_writer %></td>
+        <td><%= daum_album.review %></td>
+        <td><%= link_to 'Show', daum_album %></td>
+        <td><%= link_to 'Edit', edit_daum_album_path(daum_album) %></td>
+        <td><%= link_to 'Destroy', daum_album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daum album', new_daum_album_path %>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

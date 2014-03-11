@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails humhum: development" uuid="ba6b77b8-b5d9-4c24-8c7f-8123c3213b70">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails humhum: test" uuid="538bf90f-4c6e-40f0-bed7-a6657d647849">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails humhum: production" uuid="0dcc9ea7-7cb0-423f-bdd6-ebe63d69d2c1">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

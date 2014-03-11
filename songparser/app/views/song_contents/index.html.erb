@@ -1,0 +1,42 @@
+<h1>Listing song_contents</h1>
+
+<%= form_for :song_content, url: song_content_path do |f| %>
+    <%= f.text_field "origin_url" %> <br>
+    <%= f.submit %>
+<% end %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Origin url</th>
+      <th>Singer</th>
+      <th>Album</th>
+      <th>Content</th>
+      <th>Song</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @song_contents.each do |song_content| %>
+      <tr>
+        <td><%= song_content.origin_url %></td>
+        <td><%= song_content.singer %></td>
+        <td><%= song_content.album %></td>
+        <td><%= song_content.content %></td>
+        <td><%= song_content.song %></td>
+        <td><%= link_to 'Show', song_content %></td>
+        <td><%= link_to 'Edit', edit_song_content_path(song_content) %></td>
+        <td><%= link_to 'Destroy', song_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Song content', new_song_content_path %>

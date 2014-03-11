@@ -1,0 +1,74 @@
+<div class="col-sm-12">
+  <h2>FREE MUSIC PLAYER</h2>
+</div>
+<% # index controller has two concern %>
+<% #    - provide custom music search %>
+<% #    - show all albums %>
+
+<% # this is alternative for albums#new  %>
+<% # this is more user-friendly interface  %>
+
+
+<% # using form_tag instead of form_for %>
+
+<div class="col-sm-12">
+</div>
+
+<div class="col-sm-12">
+  <div class="col-sm-10">
+    <%= text_field_tag "custom_album[query]", nil, class: "col-sm-8 form-control" %>
+  </div>
+  <div class="col-sm-2">
+    <button type="submit" class="btn btn-primary", onclick="new_custom_album()">SEARCH</button>
+  </div>
+</div>
+
+
+<% # custom search feature and showing result feature should be implemented by AJAX %>
+<% # using JSON for data transfer %>
+
+<div>
+     <iframe id="youtube_player" src="<%= get_youtube_embed_url @albums.first.youtube_hash %>" frameborder="0" width="0" height="0" ></iframe>
+</div>
+
+
+<% # view not yet implemented %>
+
+<% # PROBLEM : rendering N iframe is so slow %>
+<% # HOW TO SOLVE : implement custom player with javascript %>
+
+<div class="col-sm-12">
+<% @albums.each do |album| %>
+  <div class="list-group col-sm-12" onclick="play_album('<%= album.youtube_hash %>')">
+    <a class="list-group-item" id="<%= album.youtube_hash %>">
+      <h5 class="list-group-item-heading"><%= album.title %></h4>
+      <p><%= album.artist %> | contents provided by <%= get_content_provider_full_name album.content_provider %></p>
+    </a>
+  </div>
+<% end %>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+    <% # Custom Music Player implemented by AJAX %>
+    function new_custom_album() {
+        $.ajax({ url: "<%= albums_path %>",
+                type: "post",
+                data: { custom_album_query: $("#custom_album_query").val() },
+
+                success: function(data) {
+                    var embed_url = "http://www.youtube.com/embed/" + data.youtube_hash + "?autoplay=1";
+                    var youtube_player = document.querySelector("iframe#youtube_player");
+                    youtube_player.src = embed_url
+                }
+        })
+    };
+
+    function play_album(youtube_hash) {
+        $("a").removeClass("active");
+        var youtube_player = document.querySelector("iframe#youtube_player");
+        var embed_url = "http://www.youtube.com/embed/" + youtube_hash + "?autoplay=1";
+        youtube_player.src = embed_url;
+        $("a#"+youtube_hash).addClass("active");
+    }
+</script>

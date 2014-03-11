@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @daum_album.artist %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @daum_album.title %>
+</p>
+
+<p>
+  <strong>Image name:</strong>
+  <%= @daum_album.image_name %>
+</p>
+
+<p>
+  <strong>Review writer:</strong>
+  <%= @daum_album.review_writer %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @daum_album.review %>
+</p>
+
+<%= link_to 'Edit', edit_daum_album_path(@daum_album) %> |
+<%= link_to 'Back', daum_albums_path %>
